@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { recipes } from '../DB'
 import { AiOutlineDelete } from 'react-icons/ai';
 import { AiOutlineEdit } from 'react-icons/ai';
@@ -8,9 +8,15 @@ import EditModal from '../Components/EditModal';
 
 export default function Home() {
     const [edit, setEdit] = useState(false)
+    const [filterProduct, setFilterProduct] = useState(recipes)
 
     const onClose = () => {
         setEdit(!edit)
+    };
+
+    const deleteItem = (id) => {
+        const deleteProduct = recipes.filter(product => product.id !== id);
+        setFilterProduct(deleteProduct)
     };
 
     return (
@@ -22,7 +28,7 @@ export default function Home() {
 
                     <div className='flex gap-2'>
                         <span className='font-bold'>Filters:</span>
-                        <input type="radio" name='search' checked />Name
+                        <input type="radio" name='search' />Name
                         <input type="radio" name='search' />Ingredients
                         <input type="radio" name='search' />Cusine
                     </div>
@@ -31,13 +37,13 @@ export default function Home() {
 
                 <div className='flex flex-wrap  m-10 gap-4'>
                     {
-                        recipes.map((item) => {
+                        filterProduct.map((item) => {
                             return (
                                 <div key={item.id} className='flex justify-center flex-col'>
                                     <span className='flex justify-end gap-5 text-2xl cursor-pointer'>
                                         <span onClick={onClose}><AiOutlineEdit /></span>
                                         {edit ? <EditModal onClose={onClose} /> : null}
-                                        <span><AiOutlineDelete /></span>
+                                        <span onClick={() => deleteItem(item.id)}><AiOutlineDelete /></span>
                                     </span>
                                     <Link to={`/single/${item.id}`}><img src={item.mediaUrl} alt="" width='300px' /></Link>
                                     <h1 className='font-bold flex justify-center'>{item.recipeName}</h1>

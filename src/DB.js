@@ -18,7 +18,7 @@ export const recipes = [
       mediaUrl: "https://media.istockphoto.com/id/1446478805/photo/a-chef-is-finishing-the-preparation-of-the-plate.webp?b=1&s=170667a&w=0&k=20&c=snBOaldpXFn355OhQb3-b0CsO2csH4OG0gDOpS9bUSA="
     },
     {
-      id:1,
+      id:2,
       recipeName: "Classic Margherita Pizza",
       ingredients: [
         "1 pizza dough",
