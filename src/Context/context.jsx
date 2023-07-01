@@ -1,13 +1,13 @@
 import { createContext, useContext } from "react";
 
-const fiveContext =createContext();
+const recipeContext =createContext();
 
-const FiveProvider=({children})=>{
+const RecipeProvider=({children})=>{
     return(
-        <fiveContext.Provider>
+        <recipeContext.Provider>
 {children}
-        </fiveContext.Provider>
+        </recipeContext.Provider>
     )
 }
-const  useFive=()=>useContext(fiveContext);
-export {useFive,FiveProvider}
+const  useRecipe=()=>useContext(recipeContext);
+export {useRecipe,RecipeProvider}
