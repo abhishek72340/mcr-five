@@ -6,10 +6,11 @@ import { AiOutlineDelete } from 'react-icons/ai';
 import { AiOutlineEdit } from 'react-icons/ai';
 import EditModal from '../Components/EditModal';
 import AddModal from '../Components/AddModal';
-const [add, setAdd] = useState(false)
+
 
 export default function Home() {
     const [edit, setEdit] = useState(false)
+    const [add, setAdd] = useState(false)
    
     const [filterProduct, setFilterProduct] = useState(recipes)
 
