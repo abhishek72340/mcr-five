@@ -5,15 +5,21 @@ import { recipes } from '../DB'
 import { AiOutlineDelete } from 'react-icons/ai';
 import { AiOutlineEdit } from 'react-icons/ai';
 import EditModal from '../Components/EditModal';
+import AddModal from '../Components/AddModal';
+const [add, setAdd] = useState(false)
 
 export default function Home() {
     const [edit, setEdit] = useState(false)
+   
     const [filterProduct, setFilterProduct] = useState(recipes)
 
     const onClose = () => {
         setEdit(!edit)
     };
 
+    const addHandler=()=>{
+        setAdd(!add);
+    }
     const deleteItem = (id) => {
         const deleteProduct = recipes.filter(product => product.id !== id);
         setFilterProduct(deleteProduct)
@@ -67,7 +73,8 @@ export default function Home() {
                             )
                         })
                     }
-                    <span className='m-20 text-white '><div className='w-10 h-10 bg-green-500 flex justify-center items-center text-4xl font-bold rounded-full cursor-pointer'>+</div></span>
+                    <span className='m-20 text-white ' onClick={addHandler}><div className='w-10 h-10 bg-green-500 flex justify-center items-center text-4xl font-bold rounded-full cursor-pointer'>+</div></span>
+                    {add?<AddModal/>:null}
 
                 </div>
 
