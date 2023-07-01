@@ -28,7 +28,7 @@ export default function Home() {
 
                     <div className='flex gap-2'>
                         <span className='font-bold'>Filters:</span>
-                        <input type="radio" name='search' />Name
+                        <input type="radio" name='search' clicked />Name
                         <input type="radio" name='search' />Ingredients
                         <input type="radio" name='search' />Cusine
                     </div>
@@ -61,10 +61,14 @@ export default function Home() {
                                             {item.Instructions.map(ins => <p >{ins}</p>)}
                                         </details>
                                     </p>
+
                                 </div>
+
                             )
                         })
                     }
+                    <span className='m-20 text-white '><div className='w-10 h-10 bg-green-500 flex justify-center items-center text-4xl font-bold rounded-full cursor-pointer'>+</div></span>
+
                 </div>
 
             </div>
