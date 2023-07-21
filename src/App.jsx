@@ -1,16 +1,19 @@
+import {Route, Routes} from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import RecipeDetailPage from "./pages/RecipeDetailPage.jsx";
 
-import { Route, Routes } from 'react-router-dom'
-import Home from './Pages/Home';
-import SinglePage from './Pages/SinglePage';
+import './App.css'
 
-export default function App() {
+function App() {
 
   return (
-    <div>
+    <>
       <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/single/:id' element={<SinglePage/>}/>
+          <Route path={'/'} element={<Home/>}/>
+          <Route path={'/recipe-detail/:id'} element={<RecipeDetailPage/>}/>
       </Routes>
-    </div>
+    </>
   )
 }
+
+export default App
